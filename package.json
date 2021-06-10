@@ -1,0 +1,30 @@
+{
+  "name": "kenno",
+  "version": "1.0.0",
+  "description": "keno",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zvw180/keno.git"
+  },
+  "keywords": [
+    "keno"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zvw180/keno/issues"
+  },
+  "homepage": "https://github.com/zvw180/keno#readme",
+  "devDependencies": {
+    "axios": "^0.21.1",
+    "cron": "^1.8.2",
+    "firebase-admin": "^9.9.0"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.9"
+  }
+}
