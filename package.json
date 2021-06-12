@@ -22,9 +22,11 @@
   "devDependencies": {
     "axios": "^0.21.1",
     "cron": "^1.8.2",
+    "dateformat": "^4.5.1",
     "firebase-admin": "^9.9.0"
   },
   "dependencies": {
-    "cheerio": "^1.0.0-rc.9"
+    "cheerio": "^1.0.0-rc.9",
+    "node-telegram-bot-api": "^0.53.0"
   }
 }

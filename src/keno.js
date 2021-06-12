@@ -1,3 +1,9 @@
+const TelegramBot = require('node-telegram-bot-api');
+
+const token = '';
+
+const bot = new TelegramBot(token, {polling: true});
+
 const firebase = require("firebase-admin");
 const cheerio = require('cheerio');
 const axios = require('axios');
@@ -9,6 +15,10 @@ firebase.initializeApp({
     databaseURL: "https://keno-ae1d3-default-rtdb.asia-southeast1.firebasedatabase.app"
 });
 const db = firebase.database();
+
+const dateFormat = require('dateformat');
+
+const now = new Date();
 // const postListRef = firebase.database().ref('keno');
 //
 // const newPostRef = postListRef.push();
@@ -92,4 +102,29 @@ console.log('done');
         console.error(err);
     }
 }, null, true, 'America/Los_Angeles');
-job.start();
+
+bot.onText(/\/start/, (msg) => {
+    let data = 'Hello';
+    let opts = {
+        parse_mode: "HTML",
+        reply_markup: {
+            keyboard: [["/start"], ["/bat", "/tat"]]
+        }
+    }
+    bot.sendMessage(msg.chat.id, data, opts);
+
+});
+
+bot.onText(/\/bat/, (msg) => {
+    const date = dateFormat(now, "isoDateTime");
+    job.start();
+    bot.sendMessage(msg.chat.id,  'bat');
+    bot.sendMessage(msg.chat.id, date );
+});
+bot.onText(/\/tat/, (msg) => {
+    const date = dateFormat(now, "isoDateTime");
+    job.stop();
+    bot.sendMessage(msg.chat.id,  'tat');
+    bot.sendMessage(msg.chat.id, date );
+});
+
